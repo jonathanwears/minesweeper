@@ -1,0 +1,19 @@
+.App {
+  display: flex;
+  justify-content: center;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  height: 25vh;
+  width: 25vw;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  border-width: 1px;
+}
