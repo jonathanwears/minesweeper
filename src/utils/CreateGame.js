@@ -1,18 +1,14 @@
 function CreateGame(grid) {
   const MINES_COUNT = 5;
-  const GRID_SIZE = grid || 5;
+  const GRID_SIZE = grid;
 
   const game = new Array(grid)
     .fill()
-    .map(() => {
-      const tile = {
-        name: 'tile',
-        type: 'tile',
-        isFlagged: false,
-        isMine: false,
-      };
-      return tile;
-    });
+    .map(() => ({
+      isFlagged: false,
+      isMine: false,
+      isClicked: false,
+    }));
 
   let mineCurrentCount = 0;
 

@@ -1,21 +1,37 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect } from 'react';
 import useTileStore from '../utils/stores/useTileStore';
-import RandomIds from '../utils/RandomIDs';
 
-function Tile({ tile }) {
+function Tile({ initialTile, index }) {
   const initTiles = useTileStore((state) => state.initTiles);
-  const tiles = useTileStore((state) => state.tiles);
-  const id = RandomIds();
-  const a = tile;
+  const updateTile = useTileStore((state) => state.updateTiles);
+  const tile = useTileStore((state) => state.tiles[index]);
 
   useEffect(() => {
-    initTiles(a, id);
+    initTiles(initialTile, index);
   }, []);
 
+  function handleClick() {
+    const newValue = !tile.isClicked;
+    updateTile(index, 'isClicked', newValue);
+  }
+
+  function handleRightClick(event) {
+    event.preventDefault();
+    const newValue = !tile.isClicked;
+    updateTile(index, 'isClicked', newValue);
+  }
+
   return (
-    <div className="tile">
-      {a.isMine === true && 'x' }
-    </div>
+    <li
+      className="tile"
+      onClick={handleClick}
+      onContextMenu={handleRightClick}
+    >
+      {}
+      {tile.isClicked && <p>x</p>}
+    </li>
   );
 }
 

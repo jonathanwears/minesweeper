@@ -11,7 +11,9 @@ function App() {
   return (
     <div className="App">
       <div className="game-board">
-        {game.map((tile) => <Tile tile={tile} />)}
+        <ul>
+          {game.map((tile, index) => <Tile initialTile={tile} index={index} />)}
+        </ul>
       </div>
     </div>
   );
