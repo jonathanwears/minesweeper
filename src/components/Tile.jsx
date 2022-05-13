@@ -26,7 +26,7 @@ function Tile({ index }) {
       onContextMenu={handleRightClick}
     >
       {}
-      {tile.isClicked && <p>x</p>}
+      {tile.isClicked && tile.isMine && <p>x</p>}
     </li>
   );
 }
