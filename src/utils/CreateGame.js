@@ -19,6 +19,7 @@ function CreateGame(grid) {
       game[randomNumber].isMine = true;
     }
   }
+
   return game;
 }
 

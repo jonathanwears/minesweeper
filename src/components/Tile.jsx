@@ -1,16 +1,12 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useEffect } from 'react';
+import React from 'react';
 import useTileStore from '../utils/stores/useTileStore';
 
-function Tile({ initialTile, index }) {
-  const initTiles = useTileStore((state) => state.initTiles);
+function Tile({ index }) {
   const updateTile = useTileStore((state) => state.updateTiles);
   const tile = useTileStore((state) => state.tiles[index]);
-
-  useEffect(() => {
-    initTiles(initialTile, index);
-  }, []);
 
   function handleClick() {
     const newValue = !tile.isClicked;

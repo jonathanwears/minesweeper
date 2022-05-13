@@ -2,17 +2,17 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import './App.css';
-import CreateGame from './utils/CreateGame';
+import useTileStore from './utils/stores/useTileStore';
 import Tile from './components/Tile';
 
 function App() {
-  const game = CreateGame(16);
+  const tiles = useTileStore((state) => state.tiles);
 
   return (
     <div className="App">
       <div className="game-board">
         <ul>
-          {game.map((tile, index) => <Tile initialTile={tile} index={index} />)}
+          {Object.keys(tiles).map((tile, index) => <Tile index={index} />)}
         </ul>
       </div>
     </div>
