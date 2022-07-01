@@ -3,7 +3,7 @@ import useTileStore from '../utils/stores/useTileStore';
 import useGameStore from '../utils/stores/useGameStore';
 
 function TileUi({ index }) {
-  const { isFlagged, isMine, isClicked } = useTileStore((state) => state.tiles[index]);
+  const { isFlagged, isMine, isClicked, flagNumber } = useTileStore((state) => state.tiles[index]);
   const { isWon, isLost } = useGameStore((state) => state);
   const [display, setDisplay] = useState(null);
 
@@ -15,9 +15,12 @@ function TileUi({ index }) {
     if (isFlagged) {
       setDisplay('Flag');
     }
+    if (!isFlagged) {
+      setDisplay(null);
+    }
 
     if (isClicked && !isMine) {
-      setDisplay('Clicked');
+      setDisplay(flagNumber);
     }
   }, [isClicked, isFlagged]);
 

@@ -1,3 +1,5 @@
+import tileProperties from './tileProperties';
+
 function CreateGame(grid) {
   const MINES_COUNT = 5;
   const GRID_SIZE = grid;
@@ -5,9 +7,7 @@ function CreateGame(grid) {
   const game = new Array(grid)
     .fill()
     .map(() => ({
-      isFlagged: false,
-      isMine: false,
-      isClicked: false,
+      ...tileProperties,
     }));
 
   let mineCurrentCount = 0;

@@ -7,9 +7,9 @@ const useGameStore = create((set) => ({
   },
 
   updateGame: (property, value) => {
-    set(({ tiles }) => ({
+    set(({ game }) => ({
       game: {
-        ...tiles,
+        ...game,
         [property]: value,
       },
     }));
