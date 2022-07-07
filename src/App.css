@@ -12,9 +12,14 @@
 }
 
 .tile  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   list-style: none;
   border-style: solid;
   border-width: 1px;
+  height: 100%;
+
 
 }
 .tile > p {
@@ -23,3 +28,9 @@
   overflow: hidden;
   padding: 0;
 }
+
+.flag {
+  height: 30%;
+  width: 30%;
+}
+

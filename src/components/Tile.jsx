@@ -16,8 +16,8 @@ function Tile({ index }) {
 
   useEffect(() => {
     // use inside tile. check if certain conditions have been met to change game.
-    const isLost = checkLostState(index);
-    if (isLost) {
+    const isLoss = checkLostState(index);
+    if (isLoss) {
       updateGame('isLost', true);
     }
   }, [unSub1]);
@@ -33,6 +33,8 @@ function Tile({ index }) {
 
   function handleTileRightClick(event) {
     event.preventDefault();
+    if (tile.isClicked) return;
+
     const newValue = !tile.isFlagged;
     updateTile(index, 'isFlagged', newValue);
   }
@@ -46,7 +48,6 @@ function Tile({ index }) {
         onClick={handleTileLeftClick}
       >
         <TileUi index={index} />
-        x
       </li>
     </div>
   );
