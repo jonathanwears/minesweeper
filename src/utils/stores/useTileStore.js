@@ -20,7 +20,6 @@ const useTileStore = create((set) => ({
       },
     }));
   },
-
 }));
 
 export default useTileStore;
