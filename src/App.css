@@ -2,16 +2,19 @@
   display: flex;
   justify-content: center;
 }
-
-.game-board ul {
+.game-board {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 25% 25% 25% 25%;
   height: 80vh;
   width: 80vw;
 }
 
-.tile  {
+.game-board ul {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+}
+
+.tile {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,8 +22,6 @@
   border-style: solid;
   border-width: 1px;
   height: 100%;
-
-
 }
 .tile > p {
   max-width: 100%;
@@ -33,4 +34,3 @@
   height: 30%;
   width: 30%;
 }
-

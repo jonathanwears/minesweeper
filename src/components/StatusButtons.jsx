@@ -10,7 +10,7 @@ import CreateGame from '../utils/CreateGame';
 function StatusButtons() {
   const { tiles, createTiles, updateTiles } = useTileStore((state) => state);
   const { game, updateGame } = useGameStore((state) => state);
-  const TILE_NUMBER = 16;
+  const TILE_NUMBER = 64;
 
   function resetGame() {
     const a = tiles;
