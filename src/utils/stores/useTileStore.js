@@ -1,5 +1,4 @@
 import create from 'zustand';
-import CreateGame from '../CreateGame';
 
 const useTileStore = create((set) => ({
   tiles: {},

@@ -3,13 +3,16 @@ function checkWin(values) {
       each tile controls loss conditions
   */
   let isWin = false;
-  const isMinesClicked = values.filter((value) => value.isMine === false)
-    .every((tile) => tile.isClicked);
 
-  const isMinesFlagged = values.filter((value) => value.isMine)
-    .every((tile) => tile.isFlagged);
+  if (!values.length === 0) {
+    const isMinesClicked = values.filter((value) => value.isMine === false)
+      .every((tile) => tile.isClicked);
 
-  if (isMinesClicked && isMinesFlagged) isWin = true;
+    const isMinesFlagged = values.filter((value) => value.isMine)
+      .every((tile) => tile.isFlagged);
+
+    if (isMinesClicked && isMinesFlagged) isWin = true;
+  }
 
   return isWin;
 }

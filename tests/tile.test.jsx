@@ -1,10 +1,10 @@
 import React from 'react';
-import { test, expect, describe, vi, afterEach, beforeAll } from 'vitest';
-import { screen, render, fireEvent } from '@testing-library/react';
+import { test, expect, describe, beforeAll } from 'vitest';
+import { screen, render, fireEvent, getByLabelText } from '@testing-library/react';
 import Tile from '../src/components/Tile';
 import useTileStore from '../src/utils/stores/useTileStore';
 
-describe('test if a mine displays a number', () => {
+describe('tile', () => {
   beforeAll(() => {
     useTileStore.setState(
       {
@@ -14,10 +14,26 @@ describe('test if a mine displays a number', () => {
             isMine: true,
             isClicked: false,
           },
+          {
+            isFlagged: false,
+            isMine: false,
+            isClicked: false,
+          },
         ],
       },
     );
   });
 
-  render(<Tile index={0} />);
+  test('if tiles exists in document', () => {
+    render(
+      <>
+        <Tile index={0} />
+        <Tile index={1} />
+      </>,
+    );
+    const tile1 = screen.getByLabelText('listItem0');
+    const tile2 = screen.getByLabelText('listItem1');
+    expect(tile1).toBeTruthy();
+    expect(tile2).toBeTruthy();
+  });
 });
