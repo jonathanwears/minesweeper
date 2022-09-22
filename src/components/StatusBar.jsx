@@ -9,8 +9,8 @@ function StatusBar() {
   return (
     <div className="status-bar">
       <ul>
-        <li>{`Won: ${isWon}`}</li>
-        <li>{`Lost: ${isLost}`}</li>
+        <li>{isWon && 'You Won!'}</li>
+        <li>{isLost && 'aww You lost!'}</li>
         <StatusButtons />
       </ul>
     </div>
