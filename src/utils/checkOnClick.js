@@ -4,37 +4,37 @@ function checkOnClick(index) {
   const tiles = useTileStore.getState();
   const tile = tiles.tiles;
   const tileNumber = Number(index);
-  const leftIndex = [0, 4, 8, 12];
-  const rightIndex = [3, 7, 11, 15];
+  const rightIndex = [7, 15, 23, 31, 39, 47, 55, 63];
+  const leftIndex = [0, 8, 16, 24, 32, 40, 48, 56];
   let tileIndicatorNumber = 0;
   // a tile cant be a mine and have a number.
 
   function leftColumn() {
-    if (tileNumber - 4 >= 0 && tile[tileNumber - 4].isMine) {
+    if (tileNumber - 8 >= 0 && tile[tileNumber - 8].isMine) {
       tileIndicatorNumber += 1;
     }
     if (tile[tileNumber + 1].isMine) {
       tileIndicatorNumber += 1;
     }
-    if (tileNumber + 4 <= 15 && tile[tileNumber + 4].isMine) {
+    if (tileNumber + 8 <= 63 && tile[tileNumber + 8].isMine) {
       tileIndicatorNumber += 1;
     }
   }
 
   function rightColumn() {
-    if (tileNumber - 4 >= 0 && tile[tileNumber - 4].isMine) {
+    if (tileNumber - 8 >= 0 && tile[tileNumber - 8].isMine) {
       tileIndicatorNumber += 1;
     }
     if (tile[tileNumber - 1].isMine) {
       tileIndicatorNumber += 1;
     }
-    if (tileNumber + 4 <= 15 && tile[tileNumber + 4].isMine) {
+    if (tileNumber + 8 <= 63 && tile[tileNumber + 8].isMine) {
       tileIndicatorNumber += 1;
     }
   }
 
   function middleColumns() {
-    if (tileNumber - 4 >= 0 && tile[tileNumber - 4].isMine) {
+    if (tileNumber - 8 >= 0 && tile[tileNumber - 8].isMine) {
       tileIndicatorNumber += 1;
     }
     if (tile[tileNumber - 1].isMine) {
@@ -43,7 +43,7 @@ function checkOnClick(index) {
     if (tile[tileNumber + 1].isMine) {
       tileIndicatorNumber += 1;
     }
-    if (tileNumber + 4 <= 15 && tile[tileNumber + 4].isMine) {
+    if (tileNumber + 8 <= 63 && tile[tileNumber + 8].isMine) {
       tileIndicatorNumber += 1;
     }
   }

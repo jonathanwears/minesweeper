@@ -13,6 +13,7 @@ function Tile({ index }) {
   const unSub1 = useTileStore.subscribe((state) => state.tiles[index]);
   const updateGame = useGameStore((state) => state.updateGame);
   const { isWon, isLost } = useGameStore.getState().game;
+
   useEffect(() => {
     // use inside tile. check if certain conditions have been met to change game.
     const isLoss = checkLostState(index);
