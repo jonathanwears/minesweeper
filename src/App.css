@@ -23,19 +23,17 @@
 }
 .game-board {
   display: grid;
+
   height: 80vh;
   width: 80vw;
 }
 
-<<<<<<< HEAD
-=======
 .game-board ul {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
 }
 
->>>>>>> dev
 .tile {
   display: flex;
   background-color: #f5efe6;
@@ -46,10 +44,7 @@
   border-width: 0.15rem;
   border-color: #e8dfca;
   height: 100%;
-<<<<<<< HEAD
   width: 100%;
-=======
->>>>>>> dev
 }
 
 .tile > p {
