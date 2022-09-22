@@ -23,8 +23,7 @@
 }
 .game-board {
   display: grid;
-
-  height: 80vh;
+  height: 95vh;
   width: 80vw;
 }
 
