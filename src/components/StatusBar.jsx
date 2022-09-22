@@ -1,5 +1,6 @@
 import React from 'react';
 import useGameStore from '../utils/stores/useGameStore';
+import './status-bar.css';
 import StatusButtons from './StatusButtons';
 
 function StatusBar() {

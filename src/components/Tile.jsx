@@ -34,16 +34,14 @@ function Tile({ index }) {
   }
 
   return (
-    <div>
-      <li
-        className="tile"
-        onContextMenu={handleTileRightClick}
-        aria-label={`listItem${index}`}
-        onClick={handleTileLeftClick}
-      >
-        <TileUi index={index} />
-      </li>
-    </div>
+    <li
+      className="tile"
+      onContextMenu={handleTileRightClick}
+      aria-label={`listItem${index}`}
+      onClick={handleTileLeftClick}
+    >
+      <TileUi index={index} />
+    </li>
   );
 }
 
