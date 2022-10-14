@@ -1,12 +1,26 @@
 import useTileStore from './stores/useTileStore';
 
 function checkOnClick(index) {
+  const BOARD_LENGTH = 64;
   const tiles = useTileStore.getState();
   const tile = tiles.tiles;
   const tileNumber = Number(index);
-  const rightIndex = [7, 15, 23, 31, 39, 47, 55, 63];
-  const leftIndex = [0, 8, 16, 24, 32, 40, 48, 56];
+  // const rightIndex = [7, 15, 23, 31, 39, 47, 55, 63];
+  // const leftIndex = [0, 8, 16, 24, 32, 40, 48, 56];
+
+  const basicIndex = new Array(BOARD_LENGTH)
+    .fill()
+    .map((_, i) => i);
+
+  const leftIndex = basicIndex
+    .filter((x) => x % 8 === 0);
+
+  const rightIndex = basicIndex
+    .filter((x) => x % 8 === 0)
+    .map((x) => x + 7);
+
   let tileIndicatorNumber = 0;
+
   // a tile cant be a mine and have a number.
 
   function leftColumn() {
