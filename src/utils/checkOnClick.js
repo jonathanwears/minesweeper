@@ -5,8 +5,6 @@ function checkOnClick(index) {
   const tiles = useTileStore.getState();
   const tile = tiles.tiles;
   const tileNumber = Number(index);
-  // const rightIndex = [7, 15, 23, 31, 39, 47, 55, 63];
-  // const leftIndex = [0, 8, 16, 24, 32, 40, 48, 56];
 
   const basicIndex = new Array(BOARD_LENGTH)
     .fill()

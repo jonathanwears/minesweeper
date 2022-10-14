@@ -3,6 +3,7 @@ import useTileStore from '../../utils/stores/useTileStore';
 import useGameStore from '../../utils/stores/useGameStore';
 import Tile from '../Tile';
 import checkWin from '../../utils/checkWIn';
+
 function GameBoard() {
   const tiles = useTileStore((state) => state.tiles);
   const tilesState = useTileStore.getState();

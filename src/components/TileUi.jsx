@@ -23,7 +23,9 @@ function TileUi({ index }) {
 
   return (
     <div className={style}>
-      <p>{!isMine && inProgress && isClicked && display}</p>
+      <p>
+        {!isMine && inProgress && isClicked && display}
+      </p>
       {isFlagged && !isClicked && <FlagIcon />}
     </div>
   );

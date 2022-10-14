@@ -34,10 +34,7 @@
 }
 
 .tile {
-  display: flex;
   background-color: #f5efe6;
-  justify-content: center;
-  align-items: center;
   list-style: none;
   border-style: solid;
   border-width: 0.15rem;
@@ -47,14 +44,12 @@
 }
 
 .tile > p {
-  max-width: 100%;
-  max-height: 100%;
   overflow: hidden;
   padding: 0;
+  text-align: center;
 }
 
 .flag {
   height: 30%;
   width: 30%;
-  background-color: #fff6bf;
 }
