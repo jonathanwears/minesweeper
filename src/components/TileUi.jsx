@@ -4,6 +4,7 @@ import FlagIcon from '../icons/FlagIcon';
 import useTileStore from '../utils/stores/useTileStore';
 import useGameStore from '../utils/stores/useGameStore';
 import checkUiConditions from '../utils/checkUiConditions';
+import Display from './Display';
 
 function TileUi({ index }) {
   const { isFlagged, isClicked, isMine } = useTileStore((state) => state.tiles[index]);
@@ -24,9 +25,9 @@ function TileUi({ index }) {
   return (
     <div className={style}>
       <p>
-        {!isMine && inProgress && isClicked && display}
+        {(!isMine && inProgress && isClicked) ? <Display display={display} /> : null}
       </p>
-      {isFlagged && !isClicked && <FlagIcon />}
+      {(isFlagged && !isClicked) ? <FlagIcon /> : null}
     </div>
   );
 }
