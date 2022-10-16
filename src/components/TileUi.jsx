@@ -15,9 +15,7 @@ function TileUi({ index }) {
 
   useEffect(() => {
     const conditions = checkUiConditions(index);
-    if (conditions.display === true) {
-      setDisplay(conditions.tileMineNum);
-    }
+    setDisplay(conditions.tileMineNum);
     setStyle(`tile-ui-${conditions.ui}`);
     updateTiles(index, 'isFlagged', conditions.flagged);
   }, [isClicked]);

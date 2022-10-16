@@ -3,40 +3,40 @@ import useGameStore from './stores/useGameStore';
 import checkOnClick from './checkOnClick';
 
 function checkUiConditions(index) {
-  const { isFlagged, isMine, isClicked } = useTileStore.getState().tiles[index];
+  const { isMine, isClicked } = useTileStore.getState().tiles[index];
   const { isWon, isLost } = useGameStore.getState().game;
 
   const conditions = {
     reveal: false,
     ui: '', // mine, flagged, clicked, default
-    display: false,
-    flagged: false,
-    tileMineNum: 0,
+    tileMineNum: '',
   };
 
-  if (!isFlagged && !isLost && !isWon && isClicked && !isMine) {
-    conditions.ui = 'clicked';
-    conditions.display = true;
-  } else if (!isFlagged && !isLost && !isWon && isClicked && isMine) {
-    conditions.display = null;
+  if (isLost || isWon) {
+    return conditions;
+  }
+
+  if (!isClicked) {
+    if (conditions.ui !== 'default') {
+      conditions.ui = 'default';
+      conditions.flagged = null;
+    }
+    return conditions;
+  }
+
+  if (isMine) {
     conditions.ui = 'mine';
-  } else if (!isFlagged && !isLost && !isWon && !isClicked && isMine) {
-    conditions.ui = 'default';
-    conditions.display = null;
+    return conditions;
   }
 
-  if (!isLost && !isWon && isFlagged) {
-    conditions.flagged = true;
-  } else if (!isFlagged || isWon || isLost) {
-    conditions.flagged = false;
+  // default if no other conditions are met. isClicked should always be true.
+  if (isClicked) {
+    conditions.ui = 'clicked';
+    conditions.tileMineNum = checkOnClick(index);
+    return conditions;
   }
 
-  if (conditions.display === true) {
-    const tileMineNum = checkOnClick(index);
-    conditions.tileMineNum = tileMineNum;
-  }
-
-  return conditions;
+  return null;
 }
 
 export default checkUiConditions;
