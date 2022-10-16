@@ -22,12 +22,13 @@ function TileUi({ index }) {
     updateTiles(index, 'isFlagged', conditions.flagged);
   }, [isClicked]);
 
+  const numDisplay = (!isMine && inProgress && isClicked) ? <Display display={display} /> : null;
+  const flagDisplay = (isFlagged && !isClicked) ? <FlagIcon /> : null;
+
   return (
     <div className={style}>
-      <p>
-        {(!isMine && inProgress && isClicked) ? <Display display={display} /> : null}
-      </p>
-      {(isFlagged && !isClicked) ? <FlagIcon /> : null}
+      {numDisplay}
+      {flagDisplay}
     </div>
   );
 }
