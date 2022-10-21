@@ -7,7 +7,7 @@ function StatusMessage({ message }) {
     2: 'aww You Lost!',
   };
 
-  return <p>{messages[message]}</p>;
+  return <p data-testid="statusMessage">{messages[message]}</p>;
 }
 
 export default StatusMessage;

@@ -41,8 +41,8 @@ function StatusButtons() {
 
   return (
     <>
-      <button type="button" onClick={handleStartGame}>{!game.inProgress ? 'Start Game' : 'New Game'}</button>
-      <button type="button" onClick={handleResetGame}>Reset</button>
+      <button type="button" aria-label="startButton" onClick={handleStartGame}>{!game.inProgress ? 'Start Game' : 'New Game'}</button>
+      <button type="button" aria-label="resetButton" onClick={handleResetGame}>Reset</button>
     </>
   );
 }
