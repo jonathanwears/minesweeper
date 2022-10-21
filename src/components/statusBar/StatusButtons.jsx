@@ -1,9 +1,9 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 import React from 'react';
-import useTileStore from '../utils/stores/useTileStore';
-import useGameStore from '../utils/stores/useGameStore';
-import CreateGame from '../utils/CreateGame';
+import useTileStore from '../../utils/stores/useTileStore';
+import useGameStore from '../../utils/stores/useGameStore';
+import CreateGame from '../../utils/CreateGame';
 
 // reset and start game from this component
 

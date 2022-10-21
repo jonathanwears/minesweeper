@@ -2,9 +2,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect } from 'react';
-import checkLostState from '../utils/checkLostState';
-import useTileStore from '../utils/stores/useTileStore';
-import useGameStore from '../utils/stores/useGameStore';
+import checkLostState from '../../utils/checkLostState';
+import useTileStore from '../../utils/stores/useTileStore';
+import useGameStore from '../../utils/stores/useGameStore';
 import TileUi from './TileUi';
 
 function Tile({ index }) {

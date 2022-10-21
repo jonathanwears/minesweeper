@@ -1,10 +1,10 @@
 import React from 'react';
 import { test, expect, describe, beforeAll, afterAll } from 'vitest';
 import { screen, render, fireEvent } from '@testing-library/react';
-import Tile from '../src/components/Tile';
+import Tile from '../src/components/Tile/Tile';
 import useTileStore from '../src/utils/stores/useTileStore';
 import useGameStore from '../src/utils/stores/useGameStore';
-import StatusBar from '../src/components/StatusBar';
+import StatusBar from '../src/components/statusBar/StatusBar';
 
 describe('tile', () => {
   beforeAll(() => {

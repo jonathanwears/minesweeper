@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import useGameStore from '../utils/stores/useGameStore';
+import useGameStore from '../../utils/stores/useGameStore';
 import './status-bar.css';
 import StatusButtons from './StatusButtons';
 import StatusMessage from './StatusMessage';

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './tile-ui.css';
-import FlagIcon from '../icons/FlagIcon';
-import useTileStore from '../utils/stores/useTileStore';
-import useGameStore from '../utils/stores/useGameStore';
-import checkUiConditions from '../utils/checkUiConditions';
-import Display from './Display';
+import FlagIcon from '../../icons/FlagIcon';
+import useTileStore from '../../utils/stores/useTileStore';
+import useGameStore from '../../utils/stores/useGameStore';
+import checkUiConditions from '../../utils/checkUiConditions';
+import Display from '../statusBar/Display';
 
 function TileUi({ index }) {
   const { isFlagged, isClicked, isMine } = useTileStore((state) => state.tiles[index]);
