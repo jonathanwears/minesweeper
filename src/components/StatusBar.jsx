@@ -20,6 +20,7 @@ function StatusBar() {
 
   return (
     <div className="status-bar">
+      <StatusButtons />
       <ul>
         <StatusButtons />
         <StatusMessage message={message} />
