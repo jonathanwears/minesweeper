@@ -6,24 +6,22 @@ import StatusMessage from './StatusMessage';
 
 function StatusBar() {
   const { isWon, isLost } = useGameStore((state) => state.game);
-  const [message, setMessage] = useState(0);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     if (isWon) {
-      setMessage(1);
+      setMessage('You Won!');
     } else if (isLost) {
-      setMessage(2);
+      setMessage('aww You Lost!');
     } else {
-      setMessage(0);
+      setMessage('');
     }
   }, [isLost, isWon]);
 
   return (
     <div className="status-bar">
-      <ul>
-        <StatusButtons />
-        <StatusMessage message={message} />
-      </ul>
+      <StatusButtons />
+      <StatusMessage message={message} />
     </div>
   );
 }

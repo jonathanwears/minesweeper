@@ -1,9 +1,5 @@
 .status-bar {
-  display: flex;
   text-align: center;
-}
-
-.status-bar li {
   list-style: none;
   padding: 2%;
   margin: 2%;
