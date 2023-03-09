@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 
 a.test.js
+.readme/*
