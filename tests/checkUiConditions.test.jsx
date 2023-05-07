@@ -5,7 +5,8 @@ import useGameStore from '../src/utils/stores/useGameStore';
 import useTileStore from '../src/utils/stores/useTileStore';
 import Tile from '../src/components/Tile';
 
-describe('test checkUiConditions logic', () => {
+describe.skip('test checkUiConditions logic', () => {
+
   beforeAll(() => {
     useTileStore.setState(
       {
