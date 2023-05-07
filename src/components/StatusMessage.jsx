@@ -2,7 +2,9 @@ import React from 'react';
 
 function StatusMessage({ message }) {
   return (
-    <p className="statusMessage">
+    <p
+      className="statusMessage"
+    >
       {message}
     </p>
   );
