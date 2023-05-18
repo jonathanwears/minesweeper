@@ -1,6 +1,7 @@
+/* eslint-disable import/prefer-default-export */
 import tileProperties from './tileProperties';
 
-function CreateGame() {
+export function CreateGame() {
   const TILE_NUMBER = 64;
   const MINES_COUNT = 15;
 
@@ -22,5 +23,3 @@ function CreateGame() {
 
   return game;
 }
-
-export default CreateGame;

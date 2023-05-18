@@ -3,7 +3,7 @@
 import React from 'react';
 import useTileStore from '../../utils/stores/useTileStore';
 import useGameStore from '../../utils/stores/useGameStore';
-import CreateGame from '../../utils/CreateGame';
+import { CreateGame } from '../../utils/CreateGame';
 
 // reset and start game from this component
 

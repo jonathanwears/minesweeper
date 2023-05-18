@@ -47,5 +47,4 @@ describe.skip('test checkUiConditions logic', () => {
     expect(tile1).toBeTruthy();
     expect(tile2).toBeTruthy();
   });
-
 });

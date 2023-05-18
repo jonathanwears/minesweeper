@@ -3,7 +3,7 @@
 /* eslint-disable no-restricted-syntax */
 import useGameStore from './stores/useGameStore';
 import useTileStore from './stores/useTileStore';
-import CreateGame from './CreateGame';
+import { CreateGame } from './CreateGame';
 
 const tileStore = useTileStore.subscribe({}, (state) => state);
 const gameStore = useGameStore.subscribe({}, (state) => state);

@@ -25,3 +25,6 @@ dist-ssr
 
 a.test.js
 .readme/*
+/test-results/
+/playwright-report/
+/playwright/.cache/
