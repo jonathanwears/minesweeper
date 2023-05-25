@@ -1,9 +1,11 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 import React from 'react';
 import useTileStore from '../../utils/stores/useTileStore';
 import useGameStore from '../../utils/stores/useGameStore';
 import { CreateGame } from '../../utils/CreateGame';
+import Button from '../Button';
 
 // reset and start game from this component
 
@@ -40,10 +42,17 @@ function StatusButtons() {
   }
 
   return (
-    <>
-      <button type="button" aria-label="startButton" onClick={handleStartGame}>{!game.inProgress ? 'Start Game' : 'New Game'}</button>
-      <button type="button" aria-label="resetButton" onClick={handleResetGame}>Reset</button>
-    </>
+    <div>
+      <Button
+        name={!game.inProgress ? 'Start Game' : 'New Game'}
+        click={handleStartGame}
+      />
+
+      <Button
+        name="Reset"
+        onClick={handleResetGame}
+      />
+    </div>
   );
 }
 
