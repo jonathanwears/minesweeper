@@ -2,8 +2,8 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import './App.css';
-import StatusBar from './components/StatusBar';
-import GameBoard from './components/GameBoard/GameBoard';
+import StatusBar from './pages/StatusBar';
+import GameBoard from './pages/GameBoard';
 
 function App() {
   return (
