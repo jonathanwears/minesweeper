@@ -31,7 +31,6 @@ function StatusButtons() {
   }
 
   function handleResetGame() {
-    console.log('reset')
     resetGame();
   }
 
