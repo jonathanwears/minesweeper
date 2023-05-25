@@ -3,7 +3,7 @@
 import React from 'react';
 import './App.css';
 import StatusBar from './pages/StatusBar';
-import GameBoard from './components/GameBoard/GameBoard';
+import GameBoard from './pages/GameBoard';
 
 function App() {
   return (
