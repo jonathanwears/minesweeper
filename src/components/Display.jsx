@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Display({ display }) {
-  return <p>{display}</p>;
+  return <p data-testid="displayNumber">{display}</p>;
 }
 
 export default Display;

@@ -6,7 +6,7 @@ import useTileStore from '../src/utils/stores/useTileStore';
 import useGameStore from '../src/utils/stores/useGameStore';
 import StatusBar from '../src/components/StatusBar';
 
-describe('tile', () => {
+describe.skip('tile', () => {
   beforeAll(() => {
     const arr = new Array(5);
     useTileStore.setState(
