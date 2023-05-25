@@ -3,6 +3,7 @@ import useGameStore from '../utils/stores/useGameStore';
 import './status-bar.css';
 import StatusButtons from '../components/statusBar/StatusButtons';
 import StatusMessage from '../components/statusBar/StatusMessage';
+import Title from '../components/Title';
 
 function StatusBar() {
   const { isWon, isLost } = useGameStore((state) => state.game);
@@ -20,6 +21,7 @@ function StatusBar() {
 
   return (
     <div className="status-bar">
+      <Title title="MineSweeper" />
       <StatusButtons />
       <StatusMessage message={message} />
     </div>
