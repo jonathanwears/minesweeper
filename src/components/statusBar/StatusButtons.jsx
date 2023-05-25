@@ -31,6 +31,7 @@ function StatusButtons() {
   }
 
   function handleResetGame() {
+    console.log('reset')
     resetGame();
   }
 
@@ -50,7 +51,7 @@ function StatusButtons() {
 
       <Button
         name="Reset"
-        onClick={handleResetGame}
+        click={handleResetGame}
       />
     </div>
   );
