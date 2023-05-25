@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import useGameStore from '../utils/stores/useGameStore';
 import './status-bar.css';
-import StatusButtons from '../components/StatusButtons';
-import StatusMessage from '../components/StatusMessage';
+import StatusButtons from '../components/statusBar/StatusButtons';
+import StatusMessage from '../components/statusBar/StatusMessage';
 
 function StatusBar() {
   const { isWon, isLost } = useGameStore((state) => state.game);
