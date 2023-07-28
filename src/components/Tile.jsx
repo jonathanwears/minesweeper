@@ -35,14 +35,16 @@ function Tile({ index }) {
   }
 
   return (
-    <li
+    <button
       className="tile"
+      type="button"
       onContextMenu={handleTileRightClick}
       aria-label={`listItem${index}`}
       onClick={handleTileLeftClick}
+      alt="listItem{index}"
     >
       <TileUi index={index} />
-    </li>
+    </button>
   );
 }
 
