@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 
 const useTileStore = create((set) => ({
   tiles: {},
@@ -9,6 +9,10 @@ const useTileStore = create((set) => ({
 
   clearTiles: () => {
     set({ tiles: {} });
+  },
+
+  testTiles: (mockTiles) => {
+    set({ tile: { ...mockTiles } })
   },
 
   updateTiles: (id, property, value) => {
