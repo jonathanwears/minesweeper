@@ -1,11 +1,10 @@
-.App {
+/* .App {
   display: flex;
-  background-color: #ffffff;
   justify-content: center;
   height: 100vh;
   width: 100vw;
   font-family: "Reem Kufi Ink", sans-serif;
-}
+} */
 
 .App button {
   background-color: #aebdca;
