@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './tile-ui.css';
+import classNames from 'classnames';
 import FlagIcon from '../icons/FlagIcon';
 import useTileStore from '../utils/stores/useTileStore';
 import useGameStore from '../utils/stores/useGameStore';
@@ -11,12 +11,16 @@ function TileUi({ index }) {
   const { updateTiles } = useTileStore((state) => state);
   const { inProgress } = useGameStore((state) => state.game);
   const [display, setDisplay] = useState(null);
-  const [style, setStyle] = useState('tile-ui-default');
+
+  const className = classNames('flex flex-col justify-center items-center focus:outline-none border focus:ring w-full h-full relative', {
+    'bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:ring-violet-900': !isClicked,
+    'bg-red-400': isClicked && isMine,
+    'bg-violet-600': isClicked && !isMine,
+  });
 
   useEffect(() => {
     const conditions = checkUiConditions(index);
     setDisplay(conditions.tileMineNum);
-    setStyle(`tile-ui-${conditions.ui}`);
     updateTiles(index, 'isFlagged', conditions.flagged);
   }, [isClicked]);
 
@@ -24,7 +28,7 @@ function TileUi({ index }) {
   const flagDisplay = (isFlagged && !isClicked) ? <FlagIcon /> : null;
 
   return (
-    <div className={style}>
+    <div className={className}>
       {numDisplay}
       {flagDisplay}
     </div>
