@@ -2,7 +2,7 @@ function basicGame() {
   const arr = [];
   const ARR_LENGTH = 64;
 
-  for (let i = 0; i <= ARR_LENGTH; i++) {
+  for (let i = 0; i <= ARR_LENGTH - 1; i++) {
     arr.push(
       {
         isFlagged: false,
