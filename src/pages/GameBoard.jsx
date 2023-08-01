@@ -16,10 +16,8 @@ function GameBoard() {
   }, [tilesState]);
 
   return (
-    <div className="game-board">
-      <ul>
-        {Object.keys(tiles).map((index) => <Tile key={index} index={index} />)}
-      </ul>
+    <div className="grid w-3/5 h-4/5 grid-cols-8 grid-rows-8 border-2 shadow-lg m-2">
+      {Object.keys(tiles).map((index) => <Tile key={index} index={index} />)}
     </div>
   );
 }
