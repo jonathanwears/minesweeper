@@ -11,8 +11,8 @@ function GameBoard() {
 
   useEffect(() => {
     const values = Object.values(tiles);
-    const isWin = checkWin(values);
-    if (isWin) updateGame('isWon', true);
+    const winnner = checkWin(values);
+    if (winnner) updateGame('isWon', true);
   }, [tiles]);
 
   const board = inProgress ? (

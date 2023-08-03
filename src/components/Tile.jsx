@@ -2,8 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import checkLostState from '../utils/checkLostState';
 import useTileStore from '../utils/stores/useTileStore';
 import useGameStore from '../utils/stores/useGameStore';
-import checkUiConditions from '../utils/checkUiConditions';
 import TileUi from './TileUi';
+import TileNumber from '../utils/TileNumber';
 
 function Tile({ index }) {
   const ref = useRef(false);
@@ -16,8 +16,8 @@ function Tile({ index }) {
 
   useEffect(() => {
     if (ref.current === true) {
-      const conditions = checkUiConditions(index);
-      setDisplay(conditions);
+      const tileNumber = TileNumber(index);
+      setDisplay(tileNumber);
     }
     ref.current = true;
   }, [isClicked]);
@@ -30,13 +30,13 @@ function Tile({ index }) {
   }, [tile]);
 
   function handleTileLeftClick() {
+    if (isLost || isWon) return;
     updateTile(index, 'isClicked', true);
   }
 
   function handleTileRightClick(event) {
     event.preventDefault();
     if (isClicked || isWon || isLost) return;
-
     const newValue = !isFlagged;
     updateTile(index, 'isFlagged', newValue);
   }
@@ -47,7 +47,6 @@ function Tile({ index }) {
       onContextMenu={handleTileRightClick}
       aria-label={`listItem${index}`}
       onClick={handleTileLeftClick}
-      alt="listItem{index}"
     >
       <TileUi
         index={index}
