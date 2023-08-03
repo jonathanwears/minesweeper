@@ -6,7 +6,6 @@ import checkWin from '../utils/checkWIn';
 
 function GameBoard() {
   const tiles = useTileStore((state) => state.tiles);
-  const tilesState = useTileStore.getState();
   const updateGame = useGameStore((state) => state.updateGame);
   const inProgress = useGameStore((state) => state.game.inProgress);
 
@@ -14,7 +13,7 @@ function GameBoard() {
     const values = Object.values(tiles);
     const isWin = checkWin(values);
     if (isWin) updateGame('isWon', true);
-  }, [tilesState]);
+  }, [tiles]);
 
   const board = inProgress ? (
     <div className="grid w-3/5 h-4/5 grid-cols-8 grid-rows-8 border-2 shadow-lg m-2">
