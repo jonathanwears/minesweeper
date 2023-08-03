@@ -1,26 +1,33 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import checkLostState from '../utils/checkLostState';
 import useTileStore from '../utils/stores/useTileStore';
 import useGameStore from '../utils/stores/useGameStore';
+import checkUiConditions from '../utils/checkUiConditions';
 import TileUi from './TileUi';
 
 function Tile({ index }) {
+  const ref = useRef(false);
   const updateTile = useTileStore((state) => state.updateTiles);
   const tile = useTileStore((state) => state.tiles[index]);
-  const unSub1 = useTileStore.subscribe((state) => state.tiles[index]);
+  const { isClicked, isFlagged } = useTileStore((state) => state.tiles[index]);
   const updateGame = useGameStore((state) => state.updateGame);
   const { isWon, isLost } = useGameStore.getState().game;
+  const [display, setDisplay] = useState(null);
 
   useEffect(() => {
-    // use inside tile. check if certain conditions have been met to change game.
+    if (ref.current === true) {
+      const conditions = checkUiConditions(index);
+      setDisplay(conditions);
+    }
+    ref.current = true;
+  }, [isClicked]);
+
+  useEffect(() => {
     const isLoss = checkLostState(index);
     if (isLoss) {
       updateGame('isLost', true);
     }
-  }, [unSub1]);
+  }, [tile]);
 
   function handleTileLeftClick() {
     updateTile(index, 'isClicked', true);
@@ -28,9 +35,9 @@ function Tile({ index }) {
 
   function handleTileRightClick(event) {
     event.preventDefault();
-    if (tile.isClicked || isWon || isLost) return;
+    if (isClicked || isWon || isLost) return;
 
-    const newValue = !tile.isFlagged;
+    const newValue = !isFlagged;
     updateTile(index, 'isFlagged', newValue);
   }
 
@@ -42,7 +49,10 @@ function Tile({ index }) {
       onClick={handleTileLeftClick}
       alt="listItem{index}"
     >
-      <TileUi index={index} />
+      <TileUi
+        index={index}
+        display={display}
+      />
     </button>
 
   );
