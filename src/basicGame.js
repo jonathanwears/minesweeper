@@ -15,8 +15,8 @@ function basicGame() {
   arr[0].isMine = true;
   arr[5].isMine = true;
   arr[7].isMine = true;
-  arr[24].isMine = true;
   arr[21].isMine = true;
+  arr[24].isMine = true;
   arr[34].isMine = true;
   arr[40].isMine = true;
   arr[47].isMine = true;
