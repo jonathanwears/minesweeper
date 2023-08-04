@@ -62,12 +62,6 @@ Project is: _in progress_
 - More consistency with modular component design
 - Slight performance hit when creating to new game
 
-#### To Do:
-
-- Add headings
-- Continue styling
-- refactor
-
 ## Contact
 
 Created by me - feel free to contact me!
