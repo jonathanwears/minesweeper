@@ -4,10 +4,9 @@ function checkWin(values) {
   */
   let isWin = false;
 
-  if (!values.length === 0) {
+  if (values.length !== 0) {
     const isMinesClicked = values.filter((value) => value.isMine === false)
       .every((tile) => tile.isClicked);
-
     const isMinesFlagged = values.filter((value) => value.isMine)
       .every((tile) => tile.isFlagged);
 

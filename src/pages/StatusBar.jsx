@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import useGameStore from '../utils/stores/useGameStore';
-import './status-bar.css';
-import StatusButtons from '../components/statusBar/StatusButtons';
-import StatusMessage from '../components/statusBar/StatusMessage';
+
+import StatusButtons from '../components/StatusButtons';
+import StatusMessage from '../components/StatusMessage';
 import Title from '../components/Title';
 
 function StatusBar() {
@@ -20,7 +20,7 @@ function StatusBar() {
   }, [isLost, isWon]);
 
   return (
-    <div className="status-bar">
+    <div className="flex flex-col justify-center items-center py-2">
       <Title title="MineSweeper" />
       <StatusButtons />
       <StatusMessage message={message} />

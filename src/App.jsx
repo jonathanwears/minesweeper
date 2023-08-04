@@ -1,14 +1,13 @@
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
-import './App.css';
 import StatusBar from './pages/StatusBar';
 import GameBoard from './pages/GameBoard';
 
 function App() {
   return (
-    <div className="App">
-      <StatusBar />
+    <div className="bg-white w-full h-screen m-0 lg:grid lg:grid-rows-1 lg:grid-cols-3 md:flex md:flex-col ">
+      <div className=" grid grid-rows-1">
+        <StatusBar />
+      </div>
       <GameBoard />
     </div>
   );

@@ -3,7 +3,7 @@ import React from 'react';
 function StatusMessage({ message }) {
   return (
     <p
-      className="statusMessage"
+      className="h-4 lg:text-xl text:lg py-5"
     >
       {message}
     </p>
