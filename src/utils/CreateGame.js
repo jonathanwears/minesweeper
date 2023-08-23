@@ -1,8 +1,8 @@
-/* eslint-disable import/prefer-default-export */
+import { v4 as uuidv4 } from 'uuid';
 import tileProperties from './tileProperties';
 import basicGame from '../basicGame';
 
-export function CreateGame() {
+function CreateGame() {
   let board = null;
 
   function makeGame() {
@@ -12,6 +12,7 @@ export function CreateGame() {
     const game = new Array(TILE_NUMBER)
       .fill()
       .map(() => ({
+        index: uuidv4(),
         ...tileProperties,
       }));
 
@@ -34,3 +35,5 @@ export function CreateGame() {
   board = makeGame();
   return board;
 }
+
+export default CreateGame;

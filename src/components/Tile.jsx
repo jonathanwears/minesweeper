@@ -5,7 +5,7 @@ import useGameStore from '../utils/stores/useGameStore';
 import TileUi from './TileUi';
 import TileNumber from '../utils/TileNumber';
 
-function Tile({ index }) {
+function Tile({ index, add }) {
   const ref = useRef(false);
   const updateTile = useTileStore((state) => state.updateTiles);
   const tile = useTileStore((state) => state.tiles[index]);
@@ -19,7 +19,6 @@ function Tile({ index }) {
       const tileNumber = TileNumber(index);
       setDisplay(tileNumber);
     }
-    ref.current = true;
   }, [isClicked]);
 
   useEffect(() => {
@@ -28,6 +27,18 @@ function Tile({ index }) {
       updateGame('isLost', true);
     }
   }, [tile]);
+
+  useEffect(() => {
+    if (ref.current === true && (isClicked || isFlagged)) {
+      add(tile.index);
+    }
+  }, [isClicked, isFlagged]);
+
+  useEffect(() => {
+    if (ref.current === false) {
+      ref.current = true;
+    }
+  }, []);
 
   function handleTileLeftClick() {
     if (isLost || isWon) return;
