@@ -4,12 +4,12 @@
 import React from 'react';
 import useTileStore from '../utils/stores/useTileStore';
 import useGameStore from '../utils/stores/useGameStore';
-import { CreateGame } from '../utils/CreateGame';
+import CreateGame from '../utils/CreateGame';
 import Button from './Button';
-
+import HandleStoreUpdates from '../utils/HandleStoreUpdates';
 // reset and start game from this component
 
-function StatusButtons() {
+function StatusButtons({ history }) {
   const { tiles, createTiles, updateTiles } = useTileStore((state) => state);
   const { game, updateGame } = useGameStore((state) => state);
 
@@ -32,6 +32,7 @@ function StatusButtons() {
 
   function handleResetGame() {
     resetGame();
+    history.clear();
   }
 
   function handleStartGame() {
@@ -41,10 +42,16 @@ function StatusButtons() {
     newGame();
   }
 
+  function handleBackButton() {
+    const index = history.history.at(-1);
+    HandleStoreUpdates(index);
+    history.remove();
+  }
+
   return (
     <div>
       <Button
-        name={!game.inProgress ? 'Start Game' : 'New Game'}
+        name={game.inProgress ? 'New Game' : 'Start Game'}
         click={handleStartGame}
       />
 
@@ -52,6 +59,12 @@ function StatusButtons() {
         name="Reset"
         click={handleResetGame}
       />
+      {game.inProgress && (
+        <Button
+          name="Back"
+          click={handleBackButton}
+        />
+      )}
     </div>
   );
 }

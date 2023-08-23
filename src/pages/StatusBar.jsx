@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import useGameStore from '../utils/stores/useGameStore';
-
 import StatusButtons from '../components/StatusButtons';
 import StatusMessage from '../components/StatusMessage';
 import Title from '../components/Title';
 
-function StatusBar() {
+function StatusBar({ history }) {
   const { isWon, isLost } = useGameStore((state) => state.game);
   const [message, setMessage] = useState('');
 
@@ -22,7 +21,9 @@ function StatusBar() {
   return (
     <div className="flex flex-col justify-center items-center py-2">
       <Title title="MineSweeper" />
-      <StatusButtons />
+      <StatusButtons
+        history={history}
+      />
       <StatusMessage message={message} />
     </div>
   );
