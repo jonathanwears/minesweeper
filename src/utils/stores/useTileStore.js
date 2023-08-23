@@ -12,7 +12,7 @@ const useTileStore = create((set) => ({
   },
 
   testTiles: (mockTiles) => {
-    set({ tile: { ...mockTiles } })
+    set({ tile: { ...mockTiles } });
   },
 
   updateTiles: (id, property, value) => {
