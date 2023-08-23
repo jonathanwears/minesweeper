@@ -1,6 +1,8 @@
 import useTileStore from './stores/useTileStore';
 
 function TileNumber(index) {
+  if (index === undefined) return;
+
   const position = Number(index);
   const tiles = useTileStore.getState();
   const tile = tiles.tiles;
