@@ -35,6 +35,7 @@ Project is created with:
 - left click to reveal number from of adjacent tiles
 - Right click to place flag
 - Win by revealing all tiles and placing flags on all mines
+- Go back if you make a wrong move
 
 ## Screenshots
 
@@ -43,7 +44,7 @@ Project is created with:
 ## Setup
 
 main channel has 'working' version
-dev channel has more up to date code and features. However code may be incomplete, or not run at all.
+dev channel has more up to date code and features. However code may be incomplete, or won't run at all.
 
 To run this project, install it locally using npm:
 
@@ -60,7 +61,6 @@ Project is: _in progress_
 ## Room for Improvement
 
 - More consistency with modular component design
-- Slight performance hit when creating to new game
 
 ## Contact
 
