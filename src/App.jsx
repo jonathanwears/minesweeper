@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import History from './utils/History';
+import History from './utils/UseHistory';
 import StatusBar from './pages/StatusBar';
 import GameBoard from './pages/GameBoard';
 import useGameStore from './utils/stores/useGameStore';

@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-function History() {
-  const [history, setHistory] = useState([]);
+function History(init = []) {
+  const [history, setHistory] = useState(init);
 
   function add(element) {
     const arr = history;
     arr.push(element);
     setHistory(arr);
-    console.log(history)
   }
 
   function remove() {
@@ -18,7 +17,7 @@ function History() {
   }
 
   function isEmpty() {
-    return history.length > 0;
+    return history.length === 0;
   }
 
   function peek() {
